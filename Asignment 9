@@ -1,0 +1,26 @@
+/*
+ZackDaniels Assignment 9
+Find sea level prediction data for 2020, 2025, 2030, 2035, 2040, 2045, 2050 from Nasa historical data
+*/
+#include <stdio.h>
+#include <stdlib.h>
+
+main() {
+	double iSeaLevelRise[] = {-38.56, -31.19, -26.02, -27.71, -26.29, -20.28, -25.26, -16.76, -14.69, -10.38, -5.12, -1.6, 0.75, 3.61, 5.33, 5.08, 8.75, 15.10,
+		10.07, 18.74, 28.57, 27.7, 33.37, 44.15, 42.16, 47.52, 51.60, 54.67,}, total = 0;
+	int x;
+
+	for (x = 0; x < 27; x++) {
+		total += iSeaLevelRise[x];
+	}
+	double presentYear = 54.67, avg = total/28;
+	int year = 2020;
+	printf("The predicted global mean sea level is\n");
+	for (int x = 0; x <= 6; x++) {
+		int predictYear = year + 5 * x;
+		printf("%d   ", predictYear);
+		printf("%f\n", avg * (predictYear - 2019) + presentYear);
+	}
+	printf("These predictions were made from data provided by nasa.");
+	return 0;
+}
